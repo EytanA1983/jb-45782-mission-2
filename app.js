@@ -1,7 +1,6 @@
 "use strict";
 
 (() => {
-  
   const selector = (sel) => document.querySelector(sel);
 
   const getJSON = async (url) => {
@@ -75,6 +74,17 @@
   const clearError = () => { const el = selector("#error"); el.hidden = true; el.textContent = ""; };
   const showError  = (msg) => { const el = selector("#error"); el.textContent = msg; el.hidden = false; };
 
+  const triggerFrameAnimation = () => {
+    ["#countries-wrap", "#regions-wrap", "#currencies-wrap"].forEach((id) => {
+      const wrap = selector(id);
+      if (!wrap) return;
+      wrap.classList.remove("animate-frame");
+      setTimeout(() => {
+        wrap.classList.add("animate-frame");
+      }, 0); 
+    });
+  };
+
   const renderStats = (arr) => {
     const { count, totalPop, avgPop, countriesHTML, regionsHTML, currHTML } = computeStats(arr);
 
@@ -87,6 +97,8 @@
     selector("#tbl-currencies-body").innerHTML= currHTML;
 
     selector("#stats").hidden = false;
+
+    triggerFrameAnimation();
   };
 
   const form   = selector("#search-form");
@@ -117,5 +129,4 @@
       .then((data) => renderStats(data))
       .catch((e) => showError(`ALL failed: ${e.message}`));
   });
-
 })();

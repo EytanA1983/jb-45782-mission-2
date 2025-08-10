@@ -3,17 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Countries Stats – REST Countries</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Countries Stats </title>
+  <script src="app.js" defer></script>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main class="container">
     <h1>Countries Search</h1>
 
-    <form id="search-form" class="controls" autocomplete="off">
+    <form id="search-form" class="controls">
       <div class="group">
         <label for="country-input">Country name (or part)</label>
-        <input id="country-input" type="text" placeholder="e.g., united" />
+        <input
+          id="country-input"
+          type="text"
+          placeholder="e.g., united"
+          required
+          minlength="2"
+          maxlength="50"
+          title="Please enter 2-50 characters"
+        />
       </div>
       <div class="buttons">
         <button id="btn-search" type="submit">Search</button>
@@ -40,7 +49,7 @@
       </div>
 
       <div class="tables">
-        <div class="table-wrap">
+        <div id="countries-wrap" class="table-wrap">
           <h2>Countries &amp; Population</h2>
           <table class="table">
             <thead>
@@ -53,7 +62,7 @@
           </table>
         </div>
 
-        <div class="table-wrap">
+        <div id="regions-wrap" class="table-wrap">
           <h2>Region counts</h2>
           <table class="table">
             <thead>
@@ -66,8 +75,8 @@
           </table>
         </div>
 
-        <div class="table-wrap">
-          <h2>Currencies (bonus)</h2>
+        <div id="currencies-wrap" class="table-wrap">
+          <h2>Currencies </h2>
           <table class="table">
             <thead>
               <tr>
@@ -81,7 +90,5 @@
       </div>
     </section>
   </main>
-
-  <script src="app.js" defer></script>
 </body>
 </html>
