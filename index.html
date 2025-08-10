@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Countries Stats – REST Countries</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Countries Search</h1>
+
+    <form id="search-form" class="controls" autocomplete="off">
+      <div class="group">
+        <label for="country-input">Country name (or part)</label>
+        <input id="country-input" type="text" placeholder="e.g., united" />
+      </div>
+      <div class="buttons">
+        <button id="btn-search" type="submit">Search</button>
+        <button id="btn-all" type="button">ALL</button>
+      </div>
+    </form>
+
+    <div id="error" class="error" hidden></div>
+
+    <section id="stats" class="stats" hidden>
+      <div class="cards">
+        <div class="card">
+          <div class="card-title">Total countries result</div>
+          <div id="stat-count" class="card-value">0</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Total population</div>
+          <div id="stat-pop-total" class="card-value">0</div>
+        </div>
+        <div class="card">
+          <div class="card-title">Average population</div>
+          <div id="stat-pop-avg" class="card-value">0</div>
+        </div>
+      </div>
+
+      <div class="tables">
+        <div class="table-wrap">
+          <h2>Countries &amp; Population</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Country Name</th>
+                <th>Population</th>
+              </tr>
+            </thead>
+            <tbody id="tbl-countries-body"></tbody>
+          </table>
+        </div>
+
+        <div class="table-wrap">
+          <h2>Region counts</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Region</th>
+                <th>Number of countries</th>
+              </tr>
+            </thead>
+            <tbody id="tbl-regions-body"></tbody>
+          </table>
+        </div>
+
+        <div class="table-wrap">
+          <h2>Currencies (bonus)</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Currency code</th>
+                <th>Number of countries</th>
+              </tr>
+            </thead>
+            <tbody id="tbl-currencies-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
